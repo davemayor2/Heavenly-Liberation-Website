@@ -61,6 +61,9 @@ function SermonCard({ sermon }: { sermon: (typeof sermons)[0] }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const ytBadgeRef = useRef<HTMLDivElement>(null);
 
+  const q = (selector: string) =>
+    cardRef.current?.querySelector<HTMLElement>(selector) ?? null;
+
   const handleMouseEnter = useCallback(() => {
     gsap.to(cardRef.current, {
       scale: 1.04,
@@ -74,11 +77,8 @@ function SermonCard({ sermon }: { sermon: (typeof sermons)[0] }) {
       duration: 0.3,
       ease: "back.out(1.7)",
     });
-    gsap.to(cardRef.current?.querySelector(".sermon-thumbnail"), {
-      scale: 1.08,
-      duration: 0.5,
-      ease: "power2.out",
-    });
+    const thumb = q(".sermon-thumbnail");
+    if (thumb) gsap.to(thumb, { scale: 1.08, duration: 0.5, ease: "power2.out" });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
@@ -93,11 +93,8 @@ function SermonCard({ sermon }: { sermon: (typeof sermons)[0] }) {
       opacity: 0.9,
       duration: 0.3,
     });
-    gsap.to(cardRef.current?.querySelector(".sermon-thumbnail"), {
-      scale: 1,
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
+    const thumb = q(".sermon-thumbnail");
+    if (thumb) gsap.to(thumb, { scale: 1, duration: 0.5, ease: "power2.inOut" });
   }, []);
 
   return (
