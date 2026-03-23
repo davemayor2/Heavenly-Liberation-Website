@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Fonts ──────────────────────────────────────── */
+  --font-sans: var(--font-jakarta), 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-didot), 'GFS Didot', ui-serif, Georgia, serif;
+
+  /* ── Brand colours ──────────────────────────────── */
+  --color-navy:       #191262;
+  --color-navy-dark:  #0d0a3d;
+  --color-navy-light: #241c8a;
+  --color-red:        #FF0700;
+  --color-red-dark:   #cc0500;
+  --color-gold:       #FFBF00;
+  --color-site-bg:    #050A0F;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+:root {
+  --background: #050A0F;
+  --foreground: #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);  /* Plus Jakarta Sans everywhere by default */
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif); /* GFS Didot for all headings */
+  font-weight: 400; /* Keep GFS Didot regular */
+}
+
+.font-serif {
+  font-weight: 400 !important;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  border-radius: 0 !important;
+}
+
+/* Button-styled links (most CTAs are <a>/<Link> with padding classes) */
+a[class*="px-"][class*="py-"] {
+  border-radius: 0 !important;
+}
+
+/* Hard-zero border-radius on all divs that have no explicit rounded class */
+div:not([class*="rounded-"]) {
+  border-radius: 0;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #0d0a3d; }
+::-webkit-scrollbar-thumb  { background: #FF0700; border-radius: 3px; }
+
+/* ── Utilities ────────────────────────────────────── */
+.text-shadow {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
