@@ -352,8 +352,9 @@ export default function GivingPage() {
                     Service Times:
                   </p>
                   <div className="space-y-1 font-sans text-gray-600 text-sm leading-relaxed">
-                    <p>Sunday Gold/Children Service &ndash; 9:00 AM</p>
-                    <p>Midweek Service &ndash; Wednesdays &ndash; 6:30 PM</p>
+                    <p>Sunday &ndash; 2:00 PM – 6:00 PM (Main Worship Service)</p>
+                    <p>Tuesday &ndash; 9:00 AM – 1:00 AM (Liberation Service)</p>
+                    <p>2nd Friday &ndash; 10:00 PM – 5:00 AM (Holy Ghost Liberation Night)</p>
                   </div>
                 </div>
               </div>

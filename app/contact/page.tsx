@@ -20,7 +20,7 @@ const infoCards = [
     icon: MapPin,
     heading: "Visit Us",
     label: "Our Location",
-    value: "Plot 5, Ojukwu Street, Off Black-Gate\nSatellite Town, Lagos",
+    value: "Plot 1A, Ojukwu Street, Off Black Gate,\nSatellite Town, Lagos, Nigeria",
     href: "https://maps.google.com",
   },
   {
@@ -42,9 +42,10 @@ const infoCards = [
 ];
 
 const serviceTimes = [
-  { day: "Sunday", time: "9:00 AM — First Service" },
-  { day: "Sunday", time: "10:30 AM — Second Service" },
-  { day: "Wednesday", time: "6:30 PM — Midweek Service" },
+  { day: "Sunday",     time: "2:00 PM – 6:00 PM — Main Worship Service" },
+  { day: "Tuesday",    time: "9:00 AM – 1:00 AM — Liberation Service" },
+  { day: "2nd Friday", time: "10:00 PM – 5:00 AM — Holy Ghost Liberation Night" },
+  { day: "Mon/Wed/Fri", time: "9:00 AM – 5:00 PM — Counselling & Deliverance" },
 ];
 
 /* ─────────────────────────────────────────────────────────────────
@@ -235,6 +236,18 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
+
+                {/* Liberation Assignment notice */}
+                <div className="border border-[#FFBF00]/40 bg-yellow-50/40 p-5 mt-2">
+                  <p className="font-sans font-bold text-gray-900 text-sm mb-1">
+                    Family &amp; Land Liberation Assignments
+                  </p>
+                  <p className="font-sans text-gray-600 text-sm leading-relaxed">
+                    We undertake liberation assignments across Nigeria and internationally.
+                    Available on <strong>invitation and prior booking only</strong> — contact
+                    us to make enquiries.
+                  </p>
+                </div>
               </div>
 
               {/* ── Right: contact form ────────────────────────── */}
@@ -350,7 +363,7 @@ export default function ContactPage() {
                   Heavenly Liberation Global Assembly
                 </p>
                 <p className="font-sans text-gray-500 text-sm">
-                  Plot 5, Ojukwu Street, Off Black-Gate Satellite Town, Lagos
+                  Plot 1A, Ojukwu Street, Off Black Gate, Satellite Town, Lagos, Nigeria
                 </p>
               </div>
               <a

@@ -13,14 +13,14 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Address",
-    value: "123 Faith Avenue, Accra, Ghana",
+    value: "Plot 1A, Ojukwu Street, Off Black Gate, Satellite Town, Lagos, Nigeria",
     href: "#map",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+233 (0) 24 000 0000",
-    href: "tel:+233240000000",
+    value: "+234 (0) 123 456 7890",
+    href: "tel:+2341234567890",
   },
   {
     icon: Mail,
@@ -31,9 +31,9 @@ const contactDetails = [
 ];
 
 const schedule = [
-  { day: "Sunday", services: "8:00 AM — First Service", note: "10:30 AM — Second Service" },
-  { day: "Tuesday", services: "6:00 PM — Bible Study", note: "Online & In-Person" },
-  { day: "Saturday", services: "7:00 PM — Prayer Vigil", note: "All Night Intercession" },
+  { day: "Sunday",    services: "2:00 PM – 6:00 PM",   note: "Main Worship Service" },
+  { day: "Tuesday",   services: "9:00 AM – 1:00 AM",   note: "Liberation Service" },
+  { day: "2nd Friday", services: "10:00 PM – 5:00 AM", note: "Holy Ghost Liberation Night" },
 ];
 
 export default function JoinUsSection() {
@@ -195,7 +195,7 @@ export default function JoinUsSection() {
                   <p className="text-white font-bold text-lg mb-1">
                     Heavenly Liberation Global Assembly
                   </p>
-                  <p className="text-white/50 text-sm">123 Faith Avenue, Accra, Ghana</p>
+                  <p className="text-white/50 text-sm">Plot 1A, Ojukwu Street, Off Black Gate, Satellite Town, Lagos, Nigeria</p>
                 </div>
                 <div className="absolute inset-0 opacity-10"
                   style={{

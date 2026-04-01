@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/home/Footer";
 import WhoWeAreCollage from "@/components/about/WhoWeAreCollage";
+import IntroVideo from "@/components/home/IntroVideo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -234,10 +235,18 @@ export default function AboutPage() {
                   multi-generational family that worships together, prays together,
                   and serves together.
                 </p>
-                <p className="font-sans text-gray-500 text-base leading-relaxed mb-10">
+                <p className="font-sans text-gray-500 text-base leading-relaxed mb-4">
                   Our ministries span children, youth, men, women, and
                   intercessors — each designed to equip believers to walk fully in
                   their God-given identity and calling.
+                </p>
+                <p className="font-sans text-gray-500 text-base leading-relaxed mb-10">
+                  The ministry also undertakes{" "}
+                  <strong className="text-gray-800">
+                    Family &amp; Land Liberation Assignments
+                  </strong>{" "}
+                  across Nigeria and internationally — available on invitation
+                  and prior booking only.
                 </p>
                 <Link
                   href="/sermons"
@@ -251,7 +260,12 @@ export default function AboutPage() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════════
-            3. A CHURCH FOR EVERYONE
+            3. INTRO VIDEO
+        ══════════════════════════════════════════════════════════════ */}
+        <IntroVideo />
+
+        {/* ══════════════════════════════════════════════════════════════
+            4. A CHURCH FOR EVERYONE
         ══════════════════════════════════════════════════════════════ */}
         <section className="bg-[#E8F0FE] py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

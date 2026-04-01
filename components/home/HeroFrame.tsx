@@ -20,9 +20,8 @@ const navLinks = [
 ];
 
 const counsellingDays = [
-  { day: "Mondays",    hours: "9:00 AM – 5:00 PM" },
-  { day: "Tuesdays",   hours: "9:00 AM – 5:00 PM" },
-  { day: "Saturdays",  hours: "9:00 AM – 5:00 PM" },
+  { day: "Mon / Wed / Fri", hours: "9:00 AM – 5:00 PM" },
+  { day: "Sundays",         hours: "2:00 PM – 6:00 PM" },
 ];
 
 /* ─────────────────────────────────────────────────────────────────
@@ -261,7 +260,7 @@ export default function HeroFrame() {
                   Worship With Us
                 </p>
                 <p className="font-sans text-white text-sm font-medium">
-                  Sundays – 9:00 AM
+                  Sundays – 2:00 PM
                 </p>
               </div>
 

@@ -8,9 +8,9 @@ import { gsap } from "gsap";
 import { ChevronDown } from "lucide-react";
 
 const serviceTimes = [
-  { day: "Sunday", time: "8:00 AM & 10:30 AM", label: "Main Worship Service" },
-  { day: "Tuesday", time: "6:00 PM", label: "Midweek Bible Study" },
-  { day: "Saturday", time: "7:00 PM", label: "Prayer & Vigil Night" },
+  { day: "Sunday",    time: "2:00 PM – 6:00 PM",   label: "Main Worship Service" },
+  { day: "Tuesday",   time: "9:00 AM – 1:00 AM",   label: "Liberation Service" },
+  { day: "2nd Friday", time: "10:00 PM – 5:00 AM", label: "Holy Ghost Liberation Night" },
 ];
 
 export default function HeroSection() {

@@ -155,9 +155,9 @@ export default function Footer() {
             </h4>
             <div className="space-y-3 mb-8">
               {[
-                { day: "Sunday", time: "8:00 AM & 10:30 AM" },
-                { day: "Tuesday", time: "6:00 PM" },
-                { day: "Saturday", time: "7:00 PM" },
+                { day: "Sunday",     time: "2:00 PM – 6:00 PM" },
+                { day: "Tuesday",    time: "9:00 AM – 1:00 AM" },
+                { day: "2nd Friday", time: "10:00 PM – 5:00 AM" },
               ].map((s) => (
                 <div key={s.day} className="flex justify-between items-center">
                   <span className="text-[#FFBF00] text-xs font-bold tracking-wide">
