@@ -18,7 +18,8 @@ const gfsDidot = GFS_Didot({
 
 export const metadata: Metadata = {
   icons: {
-    icon: [{ url: "/logo-removebg-preview.png", type: "image/png" }],
+    icon: [{ url: "/logo-removebg-preview.png", type: "image/png", sizes: "any" }],
+    shortcut: "/logo-removebg-preview.png",
     apple: "/logo-removebg-preview.png",
   },
   title: "Heavenly Liberation Global Assembly",
