@@ -1,26 +1,42 @@
 import { createClient } from "@sanity/client";
 import { createImageUrlBuilder, type SanityImageSource } from "@sanity/image-url";
 
-export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: "2024-01-01",
-  useCdn: true, // CDN for fast cached reads
-});
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
-/** Used only for authenticated mutations / draft previews */
-export const previewClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: "2024-01-01",
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
-});
+/**
+ * Public read client. `null` when env is missing (e.g. Vercel build before env vars are added).
+ * Always check `if (client)` before calling `fetch`.
+ */
+export const client = projectId
+  ? createClient({
+      projectId,
+      dataset,
+      apiVersion: "2024-01-01",
+      useCdn: true,
+    })
+  : null;
 
-const builder = createImageUrlBuilder(client);
+/** Authenticated client for drafts / mutations — same nullability as `client` */
+export const previewClient = projectId
+  ? createClient({
+      projectId,
+      dataset,
+      apiVersion: "2024-01-01",
+      useCdn: false,
+      token: process.env.SANITY_API_TOKEN,
+    })
+  : null;
 
-/** Helper: generates a Sanity CDN image URL from a Sanity image reference */
+const builder = projectId
+  ? createImageUrlBuilder({ projectId, dataset })
+  : null;
+
+/** Generates a Sanity CDN image URL. Requires `NEXT_PUBLIC_SANITY_PROJECT_ID`. */
 export function urlFor(source: SanityImageSource) {
+  if (!builder) {
+    throw new Error("Sanity urlFor: NEXT_PUBLIC_SANITY_PROJECT_ID is not set");
+  }
   return builder.image(source);
 }
 

@@ -56,10 +56,12 @@ const FALLBACK_SERMONS: SanitySermon[] = [
 export default async function LatestSermons() {
   let sermons: SanitySermon[] = [];
 
-  try {
-    sermons = await client.fetch<SanitySermon[]>(LATEST_SERMONS_QUERY);
-  } catch {
-    // Sanity not configured yet — fallback data is used below
+  if (client) {
+    try {
+      sermons = await client.fetch<SanitySermon[]>(LATEST_SERMONS_QUERY);
+    } catch {
+      // Fetch failed — fallback data is used below
+    }
   }
 
   const displaySermons = sermons.length > 0 ? sermons : FALLBACK_SERMONS;

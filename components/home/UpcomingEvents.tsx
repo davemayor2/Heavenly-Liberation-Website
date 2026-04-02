@@ -48,10 +48,12 @@ const FALLBACK_EVENTS: SanityEvent[] = [
 export default async function UpcomingEvents() {
   let events: SanityEvent[] = [];
 
-  try {
-    events = await client.fetch<SanityEvent[]>(UPCOMING_EVENTS_QUERY);
-  } catch {
-    // Sanity not configured yet — fallback data is used below
+  if (client) {
+    try {
+      events = await client.fetch<SanityEvent[]>(UPCOMING_EVENTS_QUERY);
+    } catch {
+      // Fetch failed — fallback data is used below
+    }
   }
 
   const displayEvents = events.length > 0 ? events : FALLBACK_EVENTS;
