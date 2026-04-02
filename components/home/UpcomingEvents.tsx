@@ -1,21 +1,17 @@
-"use client";
+import { client } from "@/lib/sanity";
+import { UPCOMING_EVENTS_QUERY, type SanityEvent } from "@/lib/queries";
+import UpcomingEventsClient from "./UpcomingEventsClient";
 
-import { useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const events = [
+/* ─────────────────────────────────────────────────────────────────
+   FALLBACK – used when Sanity is not yet configured or returns
+   an empty dataset, so the homepage never shows a blank section.
+───────────────────────────────────────────────────────────────── */
+const FALLBACK_EVENTS: SanityEvent[] = [
   {
-    id: 1,
+    _id: "fallback-1",
     title: "Easter Sunday Celebration",
-    date: "April 20, 2026",
-    time: "8:00 AM & 10:30 AM",
+    date: "2026-04-20T08:00:00.000Z",
+    time: "2:00 PM – 6:00 PM",
     location: "Main Sanctuary",
     description:
       "Join us for a powerful, spirit-filled Easter celebration as we commemorate the resurrection of our Lord Jesus Christ.",
@@ -24,9 +20,9 @@ const events = [
     featured: true,
   },
   {
-    id: 2,
+    _id: "fallback-2",
     title: "Women's Empowerment Conference",
-    date: "April 26–27, 2026",
+    date: "2026-04-26T09:00:00.000Z",
     time: "9:00 AM",
     location: "Conference Hall",
     description:
@@ -36,9 +32,9 @@ const events = [
     featured: false,
   },
   {
-    id: 3,
+    _id: "fallback-3",
     title: "Annual Youth Retreat",
-    date: "May 9–11, 2026",
+    date: "2026-05-09T08:00:00.000Z",
     time: "All Day",
     location: "Lakeside Camp",
     description:
@@ -49,201 +45,16 @@ const events = [
   },
 ];
 
-export default function UpcomingEvents() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+export default async function UpcomingEvents() {
+  let events: SanityEvent[] = [];
 
-  useGSAP(
-    () => {
-      // Heading fade-up
-      gsap.fromTo(
-        ".ue-heading",
-        { y: 24, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".ue-heading",
-            start: "top 88%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+  try {
+    events = await client.fetch<SanityEvent[]>(UPCOMING_EVENTS_QUERY);
+  } catch {
+    // Sanity not configured yet — fallback data is used below
+  }
 
-      // Divider: star pops in → spins → lines elongate
-      const divTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".ue-divider-row",
-          start: "top 88%",
-          toggleActions: "play none none none",
-        },
-      });
-      divTl.fromTo(
-        ".ue-divider-star",
-        { opacity: 0, scale: 0.75, rotation: -10 },
-        { opacity: 1, scale: 1, rotation: -10, duration: 0.35, ease: "power3.out" },
-        0
-      );
-      divTl.to(
-        ".ue-divider-star",
-        { rotation: 350, duration: 0.75, ease: "power2.inOut" },
-        ">"
-      );
-      divTl.fromTo(
-        ".ue-divider-line",
-        { scaleX: 0.04, opacity: 0 },
-        { scaleX: 1, opacity: 1, duration: 0.65, ease: "power3.out", stagger: 0.06 },
-        ">"
-      );
+  const displayEvents = events.length > 0 ? events : FALLBACK_EVENTS;
 
-      // Cards stagger up
-      gsap.fromTo(
-        ".event-card",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".events-container",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
-
-  const [featured, ...rest] = events;
-
-  return (
-    <section ref={sectionRef} className="bg-white py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* ── Heading ────────────────────────────────────────────────────── */}
-        <div className="text-center mb-16">
-          <div className="ue-heading opacity-0">
-            <span className="font-sans text-gray-500 text-xs font-semibold tracking-[0.3em] uppercase block mb-3">
-              Mark Your Calendar
-            </span>
-            <h2 className="font-serif text-black text-3xl md:text-5xl leading-tight">
-              Upcoming Events
-            </h2>
-          </div>
-
-          {/* Animated divider — star spins, lines grow outward */}
-          <div className="ue-divider-row mt-6 flex items-center justify-center gap-6">
-            <div className="h-0.5 w-56 bg-[#FF0700] origin-center ue-divider-line opacity-0 scale-x-0" />
-            <div className="flex items-center justify-center">
-              <div className="ue-divider-star origin-center opacity-0">
-                <Image
-                  src="/polarstar.png"
-                  alt="divider star"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 object-contain"
-                />
-              </div>
-            </div>
-            <div className="h-0.5 w-56 bg-[#FF0700] origin-center ue-divider-line opacity-0 scale-x-0" />
-          </div>
-
-          <p className="ue-heading font-sans text-gray-500 text-base max-w-xl mx-auto leading-relaxed mt-5 opacity-0">
-            Come and be part of something extraordinary. Every gathering is an
-            opportunity to encounter God.
-          </p>
-        </div>
-
-        {/* ── Events Layout ──────────────────────────────────────────────── */}
-        <div className="events-container grid lg:grid-cols-3 gap-6">
-
-          {/* Featured Event */}
-          <div className="event-card lg:col-span-2">
-            <div className="relative overflow-hidden h-full min-h-[400px] group cursor-pointer">
-              <Image
-                src={featured.image}
-                alt={featured.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a3d]/95 via-[#0d0a3d]/50 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <span className="inline-block bg-[#FF0700] text-white text-xs font-bold px-3 py-1 tracking-wide mb-4">
-                  {featured.tag}
-                </span>
-                <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight mb-3">
-                  {featured.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg">
-                  {featured.description}
-                </p>
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <div className="flex items-center gap-2 text-[#FFBF00] text-sm">
-                    <Calendar size={14} />
-                    <span>{featured.date} · {featured.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white/60 text-sm">
-                    <MapPin size={14} />
-                    <span>{featured.location}</span>
-                  </div>
-                </div>
-                <Link
-                  href="/events"
-                  className="inline-flex items-center gap-2 bg-[#FF0700] hover:bg-[#cc0500] text-white font-bold text-sm px-6 py-3 tracking-wider transition-all duration-200 hover:scale-105"
-                >
-                  Register Now <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Smaller Events */}
-          <div className="event-card flex flex-col gap-5">
-            {rest.map((event) => (
-              <div
-                key={event.id}
-                className="bg-[#191262] border border-[#191262]/10 overflow-hidden flex gap-4 p-4 hover:border-[#FF0700]/60 transition-colors duration-300 cursor-pointer group"
-              >
-                <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden">
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-400"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-[#FFBF00] text-[10px] font-bold tracking-widest uppercase">
-                    {event.tag}
-                  </span>
-                  <h4 className="text-white font-bold text-sm leading-tight mt-1 mb-2 group-hover:text-[#FFBF00] transition-colors duration-200">
-                    {event.title}
-                  </h4>
-                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
-                    <Calendar size={10} />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-white/40 text-xs mt-1">
-                    <MapPin size={10} />
-                    <span>{event.location}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            <Link
-              href="/events"
-              className="mt-auto text-center border border-gray-300 hover:border-[#FF0700] text-gray-600 hover:text-[#FF0700] py-3 text-sm font-semibold tracking-wide transition-all duration-200"
-            >
-              View All Events →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <UpcomingEventsClient events={displayEvents} />;
 }
