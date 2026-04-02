@@ -17,6 +17,10 @@ const gfsDidot = GFS_Didot({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: "/logo-removebg-preview.png", type: "image/png" }],
+    apple: "/logo-removebg-preview.png",
+  },
   title: "Heavenly Liberation Global Assembly",
   description:
     "A Spirit-filled, Word-centered church committed to transforming lives through the love and power of Jesus Christ.",
