@@ -16,8 +16,8 @@ const ministries = [
     description:
       "A safe, fun, and Spirit-filled environment where children discover God's love and build a strong foundation of faith.",
     icon: "/garden_growth-chart-fill-16.svg",
-    image: "/image2.png",
-    href: "/ministries/children",
+    image: "/10.jpeg",
+    href: "/about",
     color: "#FFBF00",
   },
   {
@@ -27,7 +27,7 @@ const ministries = [
       "Empowering the next generation with identity, purpose, and a passion for God — through community, mentorship, and mission.",
     icon: "/polarstar.png",
     image: "/image3.png",
-    href: "/ministries/youth",
+    href: "/about",
     color: "#FF0700",
   },
   {
@@ -36,8 +36,8 @@ const ministries = [
     description:
       "Building men of integrity, vision, and spiritual authority who lead their families and communities with grace.",
     icon: "/mdi_church-outline.svg",
-    image: "/image4.png",
-    href: "/ministries/men",
+    image: "/5.jpeg",
+    href: "/about",
     color: "#FFBF00",
   },
   {
@@ -46,8 +46,8 @@ const ministries = [
     description:
       "A sisterhood of prayer, purpose, and power — where women are equipped to walk in their God-given potential.",
     icon: "/boxicons_community.svg",
-    image: "/image5.png",
-    href: "/ministries/women",
+    image: "/2.jpeg",
+    href: "/about",
     color: "#FF0700",
   },
 ];

@@ -188,7 +188,7 @@ export default function WelcomeSection() {
                 className="welcome-grid-item relative overflow-hidden h-52 w-full opacity-0"
                 style={{ borderRadius: "0 30px 0 30px" }}
               >
-                <Image src="/about1.png" alt="Congregation" fill className="object-cover" />
+                <Image src="/1.jpeg" alt="Congregation" fill className="object-cover" />
               </div>
 
               {/* Box 2 – top-right: top-left + bottom-right rounded */}
@@ -196,7 +196,7 @@ export default function WelcomeSection() {
                 className="welcome-grid-item relative overflow-hidden h-52 w-full opacity-0"
                 style={{ borderRadius: "30px 0 30px 0" }}
               >
-                <Image src="/about2.png" alt="Congregation" fill className="object-cover" />
+                <Image src="/6.jpeg" alt="Congregation" fill className="object-cover object-top" />
               </div>
 
               {/* Box 3 – bottom-left: top-left + bottom-right rounded (same as box 2) */}
@@ -204,7 +204,7 @@ export default function WelcomeSection() {
                 className="welcome-grid-item relative overflow-hidden h-52 w-full opacity-0"
                 style={{ borderRadius: "30px 0 30px 0" }}
               >
-                <Image src="/about3.png" alt="Congregation" fill className="object-cover" />
+                <Image src="/3.jpeg" alt="Congregation" fill className="object-cover" />
               </div>
 
               {/* Box 4 – bottom-right: top-right + bottom-left rounded (same as box 1) */}
@@ -212,7 +212,7 @@ export default function WelcomeSection() {
                 className="welcome-grid-item relative overflow-hidden h-52 w-full opacity-0"
                 style={{ borderRadius: "0 30px 0 30px" }}
               >
-                <Image src="/about4.png" alt="Congregation" fill className="object-cover" />
+                <Image src="/4.jpeg" alt="Congregation" fill className="object-cover" />
               </div>
             </div>
           </div>

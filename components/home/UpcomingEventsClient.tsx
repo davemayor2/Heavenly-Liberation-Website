@@ -105,75 +105,76 @@ export default function UpcomingEventsClient({ events }: { events: SanityEvent[]
         {/* ── Events Layout ─────────────────────────────────────────────── */}
         <div className="events-container grid lg:grid-cols-3 gap-6">
 
-          {/* Featured Event */}
-          <div className="event-card lg:col-span-2">
-            <div className="relative overflow-hidden h-full min-h-[400px] group cursor-pointer">
+          {/* Featured — image frame only; all copy below (all breakpoints) */}
+          <div className="event-card lg:col-span-2 flex flex-col overflow-hidden border border-gray-200 bg-white shadow-sm">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[2/1] min-h-[200px] bg-[#0d0a3d] group/image">
               <Image
                 src={featuredImg}
                 alt={featured.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-contain object-center lg:object-cover lg:object-center transition-transform duration-500 lg:group-hover/image:scale-[1.02]"
                 unoptimized={featuredImg.startsWith("https://")}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a3d]/95 via-[#0d0a3d]/50 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                {featured.tag && (
-                  <span className="inline-block bg-[#FF0700] text-white text-xs font-bold px-3 py-1 tracking-wide mb-4">
-                    {featured.tag}
+            </div>
+            <div className="p-6 sm:p-8 lg:p-10 border-t border-gray-100">
+              {featured.tag && (
+                <span className="inline-block bg-[#FF0700] text-white text-xs font-bold px-3 py-1 tracking-wide mb-4">
+                  {featured.tag}
+                </span>
+              )}
+              <h3 className="text-gray-900 text-2xl md:text-3xl font-bold leading-tight mb-3 font-serif">
+                {featured.title}
+              </h3>
+              {featured.description && (
+                <p className="text-gray-600 text-sm leading-relaxed mb-5 max-w-2xl">
+                  {featured.description}
+                </p>
+              )}
+              <div className="flex flex-wrap gap-4 mb-6">
+                <div className="flex items-center gap-2 text-[#FFBF00] text-sm">
+                  <Calendar size={14} className="text-[#FF0700] shrink-0" />
+                  <span>
+                    {featuredDate}
+                    {featured.time ? ` · ${featured.time}` : ""}
                   </span>
-                )}
-                <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight mb-3">
-                  {featured.title}
-                </h3>
-                {featured.description && (
-                  <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg">
-                    {featured.description}
-                  </p>
-                )}
-                <div className="flex flex-wrap gap-4 mb-6">
-                  <div className="flex items-center gap-2 text-[#FFBF00] text-sm">
-                    <Calendar size={14} />
-                    <span>
-                      {featuredDate}
-                      {featured.time ? ` · ${featured.time}` : ""}
-                    </span>
-                  </div>
-                  {featured.location && (
-                    <div className="flex items-center gap-2 text-white/60 text-sm">
-                      <MapPin size={14} />
-                      <span>{featured.location}</span>
-                    </div>
-                  )}
                 </div>
-                <Link
-                  href="/events"
-                  className="inline-flex items-center gap-2 bg-[#FF0700] hover:bg-[#cc0500] text-white font-bold text-sm px-6 py-3 tracking-wider transition-all duration-200 hover:scale-105"
-                >
-                  Register Now <ArrowRight size={16} />
-                </Link>
+                {featured.location && (
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <MapPin size={14} className="text-[#FF0700] shrink-0" />
+                    <span>{featured.location}</span>
+                  </div>
+                )}
               </div>
+              <Link
+                href="/events"
+                className="inline-flex items-center gap-2 bg-[#FF0700] hover:bg-[#cc0500] text-white font-bold text-sm px-6 py-3 tracking-wider transition-all duration-200 hover:scale-[1.02]"
+              >
+                Register Now <ArrowRight size={16} />
+              </Link>
             </div>
           </div>
 
-          {/* Smaller Events */}
+          {/* Smaller Events — image on top, details below (all breakpoints) */}
           <div className="event-card flex flex-col gap-5">
             {rest.slice(0, 2).map((event) => {
               const imgSrc = event.image ?? "/image3.png";
               return (
                 <div
                   key={event._id}
-                  className="bg-[#191262] border border-[#191262]/10 overflow-hidden flex gap-4 p-4 hover:border-[#FF0700]/60 transition-colors duration-300 cursor-pointer group"
+                  className="bg-[#191262] border border-[#191262]/10 overflow-hidden flex flex-col hover:border-[#FF0700]/60 transition-colors duration-300 cursor-pointer group"
                 >
-                  <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] min-h-[120px] sm:min-h-[140px] overflow-hidden bg-[#0d0a3d]">
                     <Image
                       src={imgSrc}
                       alt={event.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-400"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-400"
                       unoptimized={imgSrc.startsWith("https://")}
                     />
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="p-4 flex-1 min-w-0">
                     {event.tag && (
                       <span className="text-[#FFBF00] text-[10px] font-bold tracking-widest uppercase">
                         {event.tag}

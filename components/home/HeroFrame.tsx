@@ -85,7 +85,7 @@ export default function HeroFrame() {
     >
       {/* ── BACKGROUND IMAGE ──────────────────────────── */}
       <Image
-        src="/herosection1.png"
+        src="/1.jpeg"
         alt="Worship service background"
         fill
         priority
@@ -94,7 +94,7 @@ export default function HeroFrame() {
       />
 
       {/* ── DARK OVERLAY ~30 % ─────────────────────────── */}
-      <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/65 pointer-events-none" />
 
       {/* ══════════════════════════════════════════════════
           NAVBAR  (fixed — stays visible after scroll)

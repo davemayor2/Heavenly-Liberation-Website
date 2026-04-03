@@ -85,7 +85,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/herosection1.png"
+          src="/1.jpeg"
           alt="Worship Service"
           fill
           className="hero-bg-img object-cover object-center"

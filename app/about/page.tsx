@@ -176,7 +176,7 @@ export default function AboutPage() {
         ══════════════════════════════════════════════════════════════ */}
         <section className="relative h-[88vh] min-h-[600px] flex items-center justify-center overflow-hidden">
           <Image
-            src="/aboutushero.png"
+            src="/3.jpeg"
             alt="About Heavenly Liberation Global Assembly"
             fill
             className="object-cover object-center"
@@ -322,7 +322,7 @@ export default function AboutPage() {
               <div className="leadership-img">
                 <div className="relative overflow-hidden w-full aspect-[4/5] shadow-2xl shadow-black/15">
                   <Image
-                    src="/aboutprofile.png"
+                    src="/11.jpeg"
                     alt="Evang. Samson N. Nzekwe"
                     fill
                     className="object-cover object-top"

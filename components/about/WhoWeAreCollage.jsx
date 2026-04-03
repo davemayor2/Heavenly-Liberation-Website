@@ -115,7 +115,7 @@ export default function WhoWeAreCollage() {
         "
       >
         <Image
-          src="/whoweare1.png"
+          src="/2.jpeg"
           alt="Congregation in worship"
           fill
           className="object-cover object-center"
@@ -151,7 +151,7 @@ export default function WhoWeAreCollage() {
         "
       >
         <Image
-          src="/whoweare2.png"
+          src="/4.jpeg"
           alt="Worshippers with raised hands"
           fill
           className="object-cover object-center"
