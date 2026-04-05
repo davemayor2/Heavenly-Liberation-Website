@@ -1,19 +1,15 @@
 import type { MetadataRoute } from "next";
-
-/** Prefer production URL; set in .env for correct absolute URLs in the sitemap. */
-function baseUrl(): string {
-  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (fromEnv) return fromEnv.replace(/\/$/, "");
-  const vercel = process.env.VERCEL_URL?.trim();
-  if (vercel) return `https://${vercel.replace(/^https?:\/\//, "")}`;
-  return "http://localhost:3000";
-}
+import { getCanonicalSiteUrl } from "@/lib/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = baseUrl();
+  const base = getCanonicalSiteUrl();
   const lastModified = new Date();
 
-  const paths: { path: string; changeFrequency: MetadataRoute.Sitemap[0]["changeFrequency"]; priority: number }[] = [
+  const paths: {
+    path: string;
+    changeFrequency: MetadataRoute.Sitemap[0]["changeFrequency"];
+    priority: number;
+  }[] = [
     { path: "", changeFrequency: "weekly", priority: 1 },
     { path: "/about", changeFrequency: "monthly", priority: 0.9 },
     { path: "/sermons", changeFrequency: "weekly", priority: 0.85 },

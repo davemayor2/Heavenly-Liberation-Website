@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, GFS_Didot } from "next/font/google";
+import { getCanonicalSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -17,6 +18,7 @@ const gfsDidot = GFS_Didot({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getCanonicalSiteUrl()),
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png", sizes: "any" }],
     shortcut: "/favicon.png",
