@@ -13,18 +13,18 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Sermons", href: "/sermons" },
-  { label: "Ministries", href: "/ministries" },
+  { label: "Ministries", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Contact", href: "/contact" },
 ];
 
 const ministriesLinks = [
-  { label: "Children's Ministry", href: "/ministries/children" },
-  { label: "Youth & Young Adults", href: "/ministries/youth" },
-  { label: "Men's Fellowship", href: "/ministries/men" },
-  { label: "Women's Ministry", href: "/ministries/women" },
-  { label: "Prayer Ministry", href: "/ministries/prayer" },
-  { label: "Worship Team", href: "/ministries/worship" },
+  { label: "Children's Ministry", href: "/about" },
+  { label: "Youth & Young Adults", href: "/about" },
+  { label: "Men's Fellowship", href: "/about" },
+  { label: "Women's Ministry", href: "/about" },
+  { label: "Prayer Ministry", href: "/about" },
+  { label: "Worship Team", href: "/about" },
 ];
 
 const socials = [

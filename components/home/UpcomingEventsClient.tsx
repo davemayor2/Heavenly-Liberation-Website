@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import type { SanityEvent } from "@/lib/queries";
+import { googleCalendarUrlForEvent } from "@/lib/google-calendar";
 import { formatSanityDate } from "@/lib/sanity";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -70,6 +71,7 @@ export default function UpcomingEventsClient({ events }: { events: SanityEvent[]
   const [featured, ...rest] = events;
   const featuredImg = featured.image ?? "/eventsImg.png";
   const featuredDate = formatSanityDate(featured.date);
+  const featuredCalendarHref = googleCalendarUrlForEvent(featured);
 
   return (
     <section ref={sectionRef} className="bg-white py-24">
@@ -146,12 +148,16 @@ export default function UpcomingEventsClient({ events }: { events: SanityEvent[]
                   </div>
                 )}
               </div>
-              <Link
-                href="/events"
-                className="inline-flex items-center gap-2 bg-[#FF0700] hover:bg-[#cc0500] text-white font-bold text-sm px-6 py-3 tracking-wider transition-all duration-200 hover:scale-[1.02]"
+              <a
+                href={featuredCalendarHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#FF0700] hover:bg-[#cc0500] text-white font-bold text-xs sm:text-sm px-4 sm:px-6 py-3 tracking-wide sm:tracking-wider transition-all duration-200 hover:scale-[1.02] max-w-full text-center"
               >
-                Register Now <ArrowRight size={16} />
-              </Link>
+                <Calendar size={16} className="shrink-0" aria-hidden />
+                <span className="leading-snug">Set reminder on Google Calendar</span>
+                <ArrowRight size={16} className="shrink-0" aria-hidden />
+              </a>
             </div>
           </div>
 

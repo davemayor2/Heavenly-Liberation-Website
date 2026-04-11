@@ -7,8 +7,8 @@
  * your custom domain.
  *
  * In Vercel → Project → Settings → Environment Variables (Production), set:
- *   NEXT_PUBLIC_SITE_URL=https://your-domain.com
- * Use the exact URL you added as a property in Search Console.
+ *   NEXT_PUBLIC_SITE_URL=https://heavenlyliberation.org
+ * Use the exact URL you added as a property in Search Console (apex vs www must match).
  */
 
 function normalizeOrigin(input: string): string | null {
@@ -16,7 +16,11 @@ function normalizeOrigin(input: string): string | null {
   if (!trimmed) return null;
   try {
     const withProtocol = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
-    return new URL(withProtocol).origin;
+    let origin = new URL(withProtocol).origin;
+    if (origin === "https://www.heavenlyliberation.org") {
+      origin = "https://heavenlyliberation.org";
+    }
+    return origin;
   } catch {
     return null;
   }
