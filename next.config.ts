@@ -13,8 +13,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.heavenlyliberation.org" }],
-        destination: "https://heavenlyliberation.org/:path*",
+        has: [{ type: "host", value: "www.heavenlyliberationglobalassembly.com" }],
+        destination: "https://heavenlyliberationglobalassembly.com/:path*",
         permanent: true,
       },
     ];
