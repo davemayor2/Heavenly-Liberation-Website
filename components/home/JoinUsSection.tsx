@@ -25,8 +25,8 @@ const contactDetails = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@heavenlyliberation.org",
-    href: "mailto:info@heavenlyliberation.org",
+    value: "heavenliberationglobal@gmail.com",
+    href: "mailto:heavenliberationglobal@gmail.com",
   },
 ];
 
