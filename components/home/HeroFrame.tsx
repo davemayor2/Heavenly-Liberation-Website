@@ -260,7 +260,7 @@ export default function HeroFrame() {
                   Worship With Us
                 </p>
                 <p className="font-sans text-white text-sm font-medium">
-                  Sundays – 2:00 PM
+                  Tuesdays – 9:00 AM – 1:00 PM
                 </p>
               </div>
 

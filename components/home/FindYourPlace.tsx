@@ -25,7 +25,7 @@ const ministries = [
     title: "Youth & Young Adults",
     description:
       "Empowering the next generation with identity, purpose, and a passion for God — through community, mentorship, and mission.",
-    icon: "/2.jpeg",
+    icon: "/polarstar.png",
     image: "/image3.png",
     href: "/about",
     color: "#FF0700",
