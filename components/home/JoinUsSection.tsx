@@ -32,7 +32,7 @@ const contactDetails = [
 
 const schedule = [
   { day: "Sunday",    services: "2:00 PM – 6:00 PM",   note: "Main Worship Service" },
-  { day: "Tuesday",   services: "9:00 AM – 1:00 AM",   note: "Liberation Service" },
+  { day: "Tuesday",   services: "9:00 AM – 1:00 PM",   note: "Liberation Service" },
   { day: "2nd Friday", services: "10:00 PM – 5:00 AM", note: "Holy Ghost Liberation Night" },
 ];
 
