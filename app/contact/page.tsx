@@ -28,24 +28,27 @@ const infoCards = [
     icon: Phone,
     heading: "Call Us",
     label: "Phone Number",
-    value: "+234 123 456 7890",
-    href: "tel:+2341234567890",
+    value: "+234 803 354 9525",
+    value2: "+234 7082087535 ",
+    value3: "+234 8154438690",
+    href: "tel:+2348033549525",
   },
   {
     id: "email",
     icon: Mail,
     heading: "Email Us",
     label: "Email Address",
-    value: "info@heavenlyliberation.org",
-    href: "mailto:info@heavenlyliberation.org",
+    value: "heavenlyliberationglobal@gmail.com",
+    href: "mailto:heavenlyliberationglobal@gmail.com",
   },
 ];
 
 const serviceTimes = [
-  { day: "Sunday",     time: "2:00 PM – 6:00 PM — Main Worship Service" },
-  { day: "Tuesday",    time: "9:00 AM – 1:00 AM — Liberation Service" },
+  { day: "Tuesday",    time: "9:00 AM – 1:00 PM — Main Liberation Program" },
   { day: "2nd Friday", time: "10:00 PM – 5:00 AM — Holy Ghost Liberation Night" },
-  { day: "Mon/Wed/Fri", time: "9:00 AM – 5:00 PM — Counselling & Deliverance" },
+  { day: "Mon/Wed/Fri/", time: "9:00 AM – 5:00 PM — Counselling & Deliverance" },
+  { day: "Sunday",     time: "2:00 PM – 6:00 PM — Counselling & Deliverance" },
+
 ];
 
 /* ─────────────────────────────────────────────────────────────────
