@@ -26,7 +26,7 @@ const contactDetails = [
     icon: Mail,
     label: "Email",
     value: "heavenlyliberationglobal@gmail.com",
-    href: "mailto:heavenliberationglobal@gmail.com",
+    href: "mailto:heavenlyliberationglobal@gmail.com",
   },
 ];
 
