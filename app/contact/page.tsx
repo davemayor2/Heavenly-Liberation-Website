@@ -34,6 +34,22 @@ const infoCards = [
     href: "tel:+2348033549525",
   },
   {
+    id: "phone",
+    icon: Phone,
+    heading: "Call Us",
+    label: "Phone Number",
+    value2: "+234 7082087535 ",
+    href: "tel:+2348033549525",
+  },
+  {
+    id: "phone",
+    icon: Phone,
+    heading: "Call Us",
+    label: "Phone Number",
+    value3: "+234 8154438690",
+    href: "tel:+2348033549525",
+  },
+  {
     id: "email",
     icon: Mail,
     heading: "Email Us",
