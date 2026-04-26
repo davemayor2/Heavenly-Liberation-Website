@@ -318,11 +318,11 @@ export default function GivingPage() {
                     </p>
                     <p>
                       <span className="font-semibold text-gray-700">Bank:</span>{" "}
-                      [Church Bank Name]
+                      First Bank
                     </p>
                     <p>
                       <span className="font-semibold text-gray-700">Account Number:</span>{" "}
-                      0000000000
+                      2031873549
                     </p>
                   </div>
                 </div>
